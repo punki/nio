@@ -8,7 +8,7 @@ import java.net.Socket;
  * Only one connection at the time is working.
  * Make 2 telnet connections and only one will get answers
  */
-public class SimpleServer {
+public class SingleThreadedBlockingServer {
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(8080);
         Handler<Socket, IOException> handler = new ExceptionHandler<>(
