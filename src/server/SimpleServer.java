@@ -11,7 +11,10 @@ import java.net.Socket;
 public class SimpleServer {
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(8080);
-        Handler<Socket, IOException> handler = new TransmogrifyHandler();
+        Handler<Socket, IOException> handler = new ExceptionHandler<>(
+                new PrintingHandler<>(new TransmogrifyHandler()),
+                throwable -> System.out.println("throwable = " + throwable)
+        );
         while (true) {
             Socket s = ss.accept();
             handler.handle(s);
