@@ -5,7 +5,7 @@ import java.net.Socket;
 
 public class NastyChump {
     public static void main(String[] args) {
-        Socket[] sockets = new Socket[3000];
+        Socket[] sockets = new Socket[2600];
         for (int i = 0; i < sockets.length; i++) {
             try {
                 //Exception in thread "main" java.lang.OutOfMemoryError: unable to create new native thread
